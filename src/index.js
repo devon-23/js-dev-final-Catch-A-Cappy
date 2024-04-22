@@ -4,8 +4,8 @@ const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 // TODO: Add the missing query selectors:
-const score = document.querySelector('.score'); // Use querySelector() to get the score element
-const timerDisplay = document.querySelector('.timer'); // use querySelector() to get the timer element.
+const score = document.querySelector('#score'); // Use querySelector() to get the score element
+const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
 
 let time = 0;
 let timer;
@@ -71,7 +71,7 @@ function chooseHole(holes) {
   const hole = holes[index]
 
   if (hole == lastHole) {
-    chooseHole(holes)
+    return chooseHole(holes)
   } else {
     lastHole = hole
     return holes[index]
@@ -101,10 +101,10 @@ function chooseHole(holes) {
 function gameOver() {
   // TODO: Write your code here
   if (time > 0) {
-    timeoutID = showUp()
+    let timeoutID = showUp()
     return timeoutID
   } else {
-    gameStopped = stopGame()
+    let gameStopped = stopGame()
     return gameStopped
   }
 }
@@ -150,7 +150,7 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
-  hole.classList.toggle('.show')
+  hole.classList.toggle('show')
   return hole;
 }
 
@@ -166,7 +166,8 @@ function toggleVisibility(hole){
 */
 function updateScore() {
   // TODO: Write your code here
-
+  points += 1
+  score.textContent = points
   return points;
 }
 
@@ -179,8 +180,8 @@ function updateScore() {
 */
 function clearScore() {
   // TODO: Write your code here
-  // points = 0;
-  // score.textContent = points;
+  points = 0;
+  score.textContent = points;
   return points;
 }
 
@@ -192,7 +193,10 @@ function clearScore() {
 function updateTimer() {
   // TODO: Write your code here.
   // hint: this code is provided to you in the instructions.
-  
+  if (time > 0){
+    time -= 1;
+    timerDisplay.textContent = time;
+  }
   return time;
 }
 
@@ -204,7 +208,7 @@ function updateTimer() {
 */
 function startTimer() {
   // TODO: Write your code here
-  // timer = setInterval(updateTimer, 1000);
+  timer = setInterval(updateTimer, 1000);
   return timer;
 }
 
@@ -218,7 +222,8 @@ function startTimer() {
 */
 function whack(event) {
   // TODO: Write your code here.
-  // call updateScore()
+  setEventListeners()
+  updateScore()
   return points;
 }
 
@@ -229,7 +234,8 @@ function whack(event) {
 */
 function setEventListeners(){
   // TODO: Write your code here
-
+  moles.forEach(mole => mole.addEventListener('click', whack)
+  );
   return moles;
 }
 
@@ -250,7 +256,7 @@ function setDuration(duration) {
 * timer using clearInterval. Returns "game stopped".
 *
 */
-function stopGame(){
+function stopGame() {
   // stopAudio(song);  //optional
   clearInterval(timer);
   return "game stopped";
@@ -263,7 +269,10 @@ function stopGame(){
 *
 */
 function startGame(){
+  setEventListeners()
+  startTimer()
   setDuration(10);
+  clearScore()
   showUp();
   return "game started";
 }
