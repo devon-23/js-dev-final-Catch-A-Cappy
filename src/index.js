@@ -4,7 +4,7 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); 
 const timerDisplay = document.querySelector('#timer'); 
 const difficultySelector = document.getElementById('difficultySelector');
-const audioHit = new Audio(https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/oof.mp3");
+const audioHit = new Audio("https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/oof.mp3");
 const song = new Audio("https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/nico.mp3");
 
 let time = 0;
@@ -104,14 +104,6 @@ function chooseHole(holes) {
 * then it should call the `stopGame()` function. The function also needs to
 * return the timeoutId if the game continues or the string "game stopped"
 * if the game is over.
-*
-*  // if time > 0:
-*  //   timeoutId = showUp()
-*  //   return timeoutId
-*  // else
-*  //   gameStopped = stopGame()
-*  //   return gameStopped
-*
 */
 function gameOver() {
   if (time > 0) {
