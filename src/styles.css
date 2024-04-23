@@ -50,7 +50,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  cursor: url('https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/mallet.png'), pointer;
+  cursor: url('https://devon-23.github.io/js-dev-final-Catch-A-Cappy/assets/mallet.png'), pointer;
 }
 
 .hole {
@@ -61,7 +61,7 @@ button {
 
 .hole:after {
   display: block;
-  background: url("https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/hole.png") bottom center no-repeat;
+  background: url("https://devon-23.github.io/js-dev-final-Catch-A-Cappy/assets/hole.png") bottom center no-repeat;
   background-size:contain;
   content:'';
   width: 100%;
@@ -73,7 +73,7 @@ button {
 }
 
 .mole {
-  background:url('https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/mole.png') bottom center no-repeat;
+  background:url('https://devon-23.github.io/js-dev-final-Catch-A-Cappy/assets/mole.png') bottom center no-repeat;
   background-size: 80%;
   position: absolute;
   top: 100%;
