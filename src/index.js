@@ -4,8 +4,8 @@ const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); 
 const timerDisplay = document.querySelector('#timer'); 
 const difficultySelector = document.getElementById('difficultySelector');
-const audioHit = new Audio("https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/oof.mp3");
-const song = new Audio("https://github.com/devon-23/js-dev-final-Catch-A-Cappy/assets/nico.mp3");
+const audioHit = new Audio("https://devon-23.github.io/js-dev-final-Catch-A-Cappy/assets/oof.mp3");
+const song = new Audio("https://devon-23.github.io/js-dev-final-Catch-A-Cappy/assets/nico.mp3");
 
 let time = 0;
 let timer;
