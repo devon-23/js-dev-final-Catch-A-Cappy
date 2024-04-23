@@ -1,5 +1,4 @@
 html {
-  /*background: url('./assets/background.png') no-repeat center center fixed;*/
   background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
@@ -7,31 +6,42 @@ html {
   -o-background-size: cover;
   background-size: cover;
   z-index:0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 h1 {
   text-align: center;
   font-size: 90px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: rgb(231, 157, 68);
   -webkit-text-stroke: 2px black;
 }
 
-h2 {
+#title {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h2, span {
   text-align: center;
   font-size: 40px;
-  color: white;
+  color: rgb(215, 186, 132);
   -webkit-text-stroke: 1px black;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+button {
+  color: rgb(215, 186, 132);
+  background-color: rgb(77, 60, 29);
 }
 
 #start {
-    text-align: center;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
 }
 
 #timer{
-    color: white;
+  color: white;
 }
 
 .grid {
@@ -52,7 +62,6 @@ h2 {
 .hole:after {
   display: block;
   background: url("/assets/hole.png") bottom center no-repeat;
-  /* background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat; */
   background-size:contain;
   content:'';
   width: 100%;
@@ -65,7 +74,6 @@ h2 {
 
 .mole {
   background:url('/assets/mole.png') bottom center no-repeat;
-  /* background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat; */
   background-size: 80%;
   position: absolute;
   top: 100%;
@@ -79,4 +87,19 @@ h2 {
 .hole.show .mole {
   top: 0;
   transform: scale(1.1);
+}
+
+#difficulty {
+  text-align: center;
+  font-size: 35px;
+  color: rgb(215, 186, 132);
+  -webkit-text-stroke: 1px black;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#difficultySelector {
+  width: 80px;
+  color: rgb(215, 186, 132);
+  background-color: rgb(94, 81, 55);
+  -webkit-text-stroke: 1px rgb(215, 186, 132);;
 }

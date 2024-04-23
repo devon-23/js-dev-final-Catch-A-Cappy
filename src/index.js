@@ -1,16 +1,33 @@
-// import { error } from "console";
-
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); 
 const timerDisplay = document.querySelector('#timer'); 
+const difficultySelector = document.getElementById('difficultySelector');
+const audioHit = new Audio("/assets/oof.mp3");
+const song = new Audio("/assets/nico.mp3");
 
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
 let difficulty = "normal";
+
+/**
+ * @param {} audioObject 
+ * 
+ * Plays Audio when game is played
+ */
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+/**
+ * Calls playAudio function
+ */
+function play() {
+  playAudio(song);
+}
 
 /**
  * Generates a random integer within a range.
@@ -41,13 +58,13 @@ function randomInteger(min, max) {
  *
  */
 function setDelay(difficulty) {
-    if (difficulty == 'easy') {
-      return 1500
-    } else if (difficulty == 'normal') {
-      return 1000
-    } else if (difficulty == 'hard') {
-      return randomInteger(600, 1200);
-    } 
+  if (difficulty == 'easy') {
+    return 1500
+  } else if (difficulty == 'normal') {
+    return 1000
+  } else if (difficulty == 'hard') {
+    return randomInteger(600, 1200);
+  } 
 }
 
 /**
@@ -122,7 +139,6 @@ function showUp() {
 }
 
 /**
-*
 * The purpose of this function is to show and hide the mole given
 * a delay time and the hole where the mole is hidden. The function calls
 * `toggleVisibility` to show or hide the mole. The function should return
@@ -213,6 +229,7 @@ function startTimer() {
 function whack(event) {
   setEventListeners()
   updateScore()
+  audioHit.play()
   return points;
 }
 
@@ -249,10 +266,8 @@ function stopGame() {
 }
 
 /**
-*
 * This is the function that starts the game when the `startButton`
 * is clicked.
-*
 */
 function startGame(){
   setEventListeners()
@@ -260,8 +275,14 @@ function startGame(){
   setDuration(10);
   clearScore()
   showUp();
+  play()
   return "game started";
 }
+
+difficultySelector.addEventListener('change', function() {
+  difficulty = this.value;
+  console.log("difficulty changed to " + difficulty)
+});
 
 startButton.addEventListener("click", startGame);
 
